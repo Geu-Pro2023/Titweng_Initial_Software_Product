@@ -1,5 +1,7 @@
 # Titweng Cattle Verification System (MVP)
 
+<img width="624" height="590" alt="Screenshot 2025-10-07 at 1 18 09 am" src="https://github.com/user-attachments/assets/c51b86e4-793c-42e5-af19-cd850870ad9d" />
+
 ## Description
 The **Titweng Cattle Verification System** is a machine learning-powered solution designed to verify and register cattle using nose prints. It combines computer vision, a Siamese Convolutional Neural Network (CNN), and a mobile/web interface to provide real-time cattle verification for farmers, buyers, and sellers.
 
@@ -11,13 +13,13 @@ The **Titweng Cattle Verification System** is a machine learning-powered solutio
 - **API Access**: Backend FastAPI endpoints for registration and verification.
 
 ---
-
 ## GitHub Repository
-1. [Project Repository:](https://github.com/Geu-Pro2023/Titweng_Initial_Software_Product)
-2. [Figma Design:](https://www.figma.com/design/BDT9TX3z4jfmnWl0VU6ysn/Titweng-Mobile-UI?node-id=0-1&t=lyeLWb7C8fbTX7zO-1)
+1. **Click:** [Project Repository:](https://github.com/Geu-Pro2023/Titweng_Initial_Software_Product)
+2. **Click** [Figma Design:](https://www.figma.com/design/BDT9TX3z4jfmnWl0VU6ysn/Titweng-Mobile-UI?node-id=0-1&t=lyeLWb7C8fbTX7zO-1)
 ---
 
-
+## **Video Demo**
+Demo: https://youtu.be/aZAGvWUMY90 
 
 ## Environment Setup
 1. **Clone the repository**
@@ -25,7 +27,6 @@ The **Titweng Cattle Verification System** is a machine learning-powered solutio
 git clone YOUR_GITHUB_REPO_LINK
 cd Titweng_FastAPI
 Create and activate a virtual environment
-
 
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
@@ -62,42 +63,25 @@ Titweng_FastAPI/
 
 ## Designs & Mockups
 
+<img width="836" height="430" alt="Screenshot 2025-10-07 at 1 06 05 am" src="https://github.com/user-attachments/assets/4406ab26-8312-4c0e-b886-cb9e36ebc7a2" />
 
-1. <img width="354" height="697" alt="Screenshot 2025-10-06 at 9 38 03 pm" src="https://github.com/user-attachments/assets/b858d75c-0913-4966-96ba-58f3cdaf152b" />
-
-2. <img width="339" height="688" alt="Screenshot 2025-10-06 at 9 37 43 pm" src="https://github.com/user-attachments/assets/5cf5adfa-d7b0-4573-a4ab-76f0417a846c" />
-
-3. <img width="343" height="690" alt="Screenshot 2025-10-06 at 9 36 58 pm" src="https://github.com/user-attachments/assets/5a2bf4ea-c3d6-4cac-9c9d-933e9538f5aa" />
-
-4. <img width="344" height="705" alt="Screenshot 2025-10-06 at 9 37 15 pm" src="https://github.com/user-attachments/assets/146875ae-ddc9-476e-93aa-a456110e5ee1" />
-
-5. <img width="343" height="695" alt="Screenshot 2025-10-06 at 9 36 17 pm" src="https://github.com/user-attachments/assets/f1f21afa-485b-41f1-bafe-a4e644cf8967" />
-
-
-
-- ML Model Architecture: Siamese CNN using ResNet18 backbone with a fully connected embedding layer.
-- Data Visualizations: Histograms and correlation plots from the notebook (ML_Notebook.ipynb).
+- **ML Model Architecture:** Siamese CNN using ResNet18 backbone with a fully connected embedding layer.
+- **Data Visualizations:** Histograms and correlation plots from the notebook (ML_Notebook.ipynb).
 
 **Deployment Plan**
-- Backend (API): FastAPI hosted locally or on a cloud server.
-
-- Mobile App: Flutter app connecting to FastAPI endpoints.
-
-- Notifications: Integrated using email (SMTP) and SMS (Twilio or similar).
-
-- Future Deployment: Docker container for backend + cloud-hosted database for scalability.
+- **Backend (API):** FastAPI hosted locally or on a cloud server.
+- **Mobile App:** Flutter app connecting to FastAPI endpoints.
+- **Notifications:** Integrated using email (SMTP) and SMS (Twilio or similar).
+- **Future Deployment:** Docker container for backend + cloud-hosted database for scalability.
 
 ## ML Model
 
-- Model Type: Siamese CNN for image similarity.
-- Input: Cropped cow nose print images (224x224 RGB).
-- Embedding Size: 256-dimensional vector.
-- Performance Metrics:
+- **Model Type:** Siamese CNN for image similarity.
+- **Input:** Cropped cow nose print images (224x224 RGB).
+- **Embedding Size:** 256-dimensional vector.
+### **Performance Metrics:**
 - Accuracy, Precision, Recall, F1-score (see notebook for details).
 - Notebook Link: notebooks/ML_Notebook.ipynb
-
-## **Video Demo**
-Demo: https://youtu.be/aZAGvWUMY90 
 
 ## How to Test the MVP
 ```
