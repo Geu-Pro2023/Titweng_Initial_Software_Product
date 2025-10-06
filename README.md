@@ -39,6 +39,7 @@ Open http://127.0.0.1:8002/docs to interact with the endpoints.
 ```
 
 ## Project Structure
+```
 Titweng_FastAPI/
 ├── app/
 │   ├── main.py             # FastAPI entry point
@@ -55,7 +56,7 @@ Titweng_FastAPI/
 ├── uploads/                # Temporary folder for uploaded images
 ├── requirements.txt        # Python dependencies
 └── README.md
-
+```
 
 ## Designs & Mockups
 **Flutter UI Screenshots:**
