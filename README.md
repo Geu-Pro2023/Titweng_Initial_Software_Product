@@ -14,7 +14,7 @@ The **Titweng Cattle Verification System** is a machine learning-powered solutio
 
 ## GitHub Repository
 1. [Project Repository:](https://github.com/Geu-Pro2023/Titweng_Initial_Software_Product)
-2. [Figma Design:](https://github.com/Geu-Pro2023/Titweng_Initial_Software_Product)
+2. [Figma Design:](https://www.figma.com/design/BDT9TX3z4jfmnWl0VU6ysn/Titweng-Mobile-UI?node-id=0-1&t=lyeLWb7C8fbTX7zO-1)
 ---
 
 
