@@ -77,7 +77,61 @@ Titweng_FastAPI/
 - **Embedding Size:** 256-dimensional vector.
 ### **Performance Metrics:**
 - Accuracy, Precision, Recall, F1-score (see notebook for details).
-- Notebook Link: notebooks/ML_Notebook.ipynb
+
+## Usage Examples
+### **1. Register Cattle**
+```
+import requests
+
+url = "http://localhost:8000/api/register-cattle"
+files = {
+    'images': [('nose1.jpg', open('nose1.jpg', 'rb'), 'image/jpeg'),
+               ('nose2.jpg', open('nose2.jpg', 'rb'), 'image/jpeg')]
+}
+data = {
+    'owner_name': 'John Doe',
+    'owner_email': 'john@example.com',
+    'owner_phone': '+1234567890',
+    'cattle_breed': 'Angus',
+    'age': '2 years'
+}
+
+response = requests.post(url, files=files, data=data)
+print(response.json())
+```
+### **2. Verify Cattle**
+
+```
+import requests
+
+url = "http://localhost:8000/api/verify-cattle"
+files = {'image': open('query_nose.jpg', 'rb')}
+
+response = requests.post(url, files=files)
+print(response.json())
+```
+
+## Machine Learning Model
+### **Siamese CNN Architecture**
+The system uses a Siamese Neural Network with the following structure:
+
+- Feature Extraction: CNN backbone (MobileNetV2)
+- Distance Metric: Contrastive loss with Euclidean distance
+- Input Size: 224x224 RGB images
+- Output: Similarity score (0-1 range)
+
+### **Training Process**
+1. Data augmentation on nose print images
+2. Contrastive loss minimization
+3. Threshold tuning for verification accuracy
+
+### **Mobile Application**
+The Flutter mobile app provides:
+- Camera interface for capturing nose prints
+- Registration and verification workflows
+- History of previous verifications
+- Push notifications for verification results
+
 
 ## How to Test the MVP
 
@@ -94,4 +148,42 @@ Titweng_FastAPI/
 
 <img width="944" height="377" alt="Screenshot 2025-10-07 at 1 29 50 am" src="https://github.com/user-attachments/assets/b4e34c26-31c2-4125-a173-6f5b68862be9" />
 
+## **Deployment**
+### **1. Local Development**
 
+```
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+### **2. Production Deployment**
+
+```
+# Using Docker
+docker build -t titweng-cattle .
+docker run -p 8000:8000 titweng-cattle
+
+# Using Gunicorn (Linux/Mac)
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app
+
+```
+
+## Testing
+**Run the test suite:**
+
+```
+pytest tests/ -v
+```
+
+## **Contributing**
+
+1. Fork the repository
+2. Create a feature branch (git checkout -b feature/AmazingFeature)
+3. Commit your changes (git commit -m 'Add some AmazingFeature')
+4. Push to the branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+
+## **License**
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## **Contributor**
+1.Geu Aguto Garang Bior - g.bior@alustudent.com
