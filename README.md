@@ -1,7 +1,5 @@
 # Titweng Cattle Verification System (MVP)
 
-<img width="624" height="590" alt="Screenshot 2025-10-07 at 1 18 09 am" src="https://github.com/user-attachments/assets/c51b86e4-793c-42e5-af19-cd850870ad9d" />
-
 ## Description
 The **Titweng Cattle Verification System** is a machine learning-powered solution designed to verify and register cattle using nose prints. It combines computer vision, a Siamese Convolutional Neural Network (CNN), and a mobile/web interface to provide real-time cattle verification for farmers, buyers, and sellers.
 
@@ -12,14 +10,12 @@ The **Titweng Cattle Verification System** is a machine learning-powered solutio
 - **Mobile/Web Interface**: Flutter app or web interface to interact with the system.
 - **API Access**: Backend FastAPI endpoints for registration and verification.
 
----
 ## GitHub Repository
 1. **Click:** [Project Repository:](https://github.com/Geu-Pro2023/Titweng_Initial_Software_Product)
 2. **Click** [Figma Design:](https://www.figma.com/design/BDT9TX3z4jfmnWl0VU6ysn/Titweng-Mobile-UI?node-id=0-1&t=lyeLWb7C8fbTX7zO-1)
----
 
 ## **Video Demo**
-Demo: https://youtu.be/aZAGvWUMY90 
+**Demo:** https://youtu.be/aZAGvWUMY90 
 
 ## Environment Setup
 1. **Clone the repository**
@@ -84,11 +80,18 @@ Titweng_FastAPI/
 - Notebook Link: notebooks/ML_Notebook.ipynb
 
 ## How to Test the MVP
-```
-Run FastAPI server locally.
-Use Swagger UI to register a cow with 3–5 nose images.
-Use Swagger UI to verify a cow by uploading a new nose image.
-Check email and SMS notifications.
-Observe the similarity score returned by the API.
-```
+
+1. Run FastAPI server locally.
+2. Use Swagger UI to register a cow with 3–5 nose images.
+3. Use Swagger UI to verify a cow by uploading a new nose image.
+4. Check email and SMS notifications.
+5. Observe the similarity score returned by the API.
+
+## YOLOv8 Cow Nose Print Detection
+<img width="624" height="590" alt="Screenshot 2025-10-07 at 1 18 09 am" src="https://github.com/user-attachments/assets/c51b86e4-793c-42e5-af19-cd850870ad9d" />
+
+## Siamese CNN Learning Curves
+
+<img width="944" height="377" alt="Screenshot 2025-10-07 at 1 29 50 am" src="https://github.com/user-attachments/assets/b4e34c26-31c2-4125-a173-6f5b68862be9" />
+
 
