@@ -10,14 +10,12 @@ The **Titweng Cattle Verification System** is a machine learning-powered solutio
 - **Mobile/Web Interface**: Flutter app or web interface to interact with the system.
 - **API Access**: Backend FastAPI endpoints for registration and verification.
 
----
-
 ## GitHub Repository
-1. [Project Repository:](https://github.com/Geu-Pro2023/Titweng_Initial_Software_Product)
-2. [Figma Design:](https://www.figma.com/design/BDT9TX3z4jfmnWl0VU6ysn/Titweng-Mobile-UI?node-id=0-1&t=lyeLWb7C8fbTX7zO-1)
----
+1. **Click:** [Project Repository:](https://github.com/Geu-Pro2023/Titweng_Initial_Software_Product)
+2. **Click** [Figma Design:](https://www.figma.com/design/BDT9TX3z4jfmnWl0VU6ysn/Titweng-Mobile-UI?node-id=0-1&t=lyeLWb7C8fbTX7zO-1)
 
-
+## **Video Demo**
+**Demo:** https://youtu.be/aZAGvWUMY90 
 
 ## Environment Setup
 1. **Clone the repository**
@@ -25,7 +23,6 @@ The **Titweng Cattle Verification System** is a machine learning-powered solutio
 git clone YOUR_GITHUB_REPO_LINK
 cd Titweng_FastAPI
 Create and activate a virtual environment
-
 
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
@@ -62,49 +59,131 @@ Titweng_FastAPI/
 
 ## Designs & Mockups
 
+<img width="836" height="430" alt="Screenshot 2025-10-07 at 1 06 05 am" src="https://github.com/user-attachments/assets/4406ab26-8312-4c0e-b886-cb9e36ebc7a2" />
 
-1. <img width="354" height="697" alt="Screenshot 2025-10-06 at 9 38 03 pm" src="https://github.com/user-attachments/assets/b858d75c-0913-4966-96ba-58f3cdaf152b" />
-
-2. <img width="339" height="688" alt="Screenshot 2025-10-06 at 9 37 43 pm" src="https://github.com/user-attachments/assets/5cf5adfa-d7b0-4573-a4ab-76f0417a846c" />
-
-3. <img width="343" height="690" alt="Screenshot 2025-10-06 at 9 36 58 pm" src="https://github.com/user-attachments/assets/5a2bf4ea-c3d6-4cac-9c9d-933e9538f5aa" />
-
-4. <img width="344" height="705" alt="Screenshot 2025-10-06 at 9 37 15 pm" src="https://github.com/user-attachments/assets/146875ae-ddc9-476e-93aa-a456110e5ee1" />
-
-5. <img width="343" height="695" alt="Screenshot 2025-10-06 at 9 36 17 pm" src="https://github.com/user-attachments/assets/f1f21afa-485b-41f1-bafe-a4e644cf8967" />
-
-
-
-- ML Model Architecture: Siamese CNN using ResNet18 backbone with a fully connected embedding layer.
-- Data Visualizations: Histograms and correlation plots from the notebook (ML_Notebook.ipynb).
+- **ML Model Architecture:** Siamese CNN using ResNet18 backbone with a fully connected embedding layer.
+- **Data Visualizations:** Histograms and correlation plots from the notebook (ML_Notebook.ipynb).
 
 **Deployment Plan**
-- Backend (API): FastAPI hosted locally or on a cloud server.
-
-- Mobile App: Flutter app connecting to FastAPI endpoints.
-
-- Notifications: Integrated using email (SMTP) and SMS (Twilio or similar).
-
-- Future Deployment: Docker container for backend + cloud-hosted database for scalability.
+- **Backend (API):** FastAPI hosted locally or on a cloud server.
+- **Mobile App:** Flutter app connecting to FastAPI endpoints.
+- **Notifications:** Integrated using email (SMTP) and SMS (Twilio or similar).
+- **Future Deployment:** Docker container for backend + cloud-hosted database for scalability.
 
 ## ML Model
 
-- Model Type: Siamese CNN for image similarity.
-- Input: Cropped cow nose print images (224x224 RGB).
-- Embedding Size: 256-dimensional vector.
-- Performance Metrics:
+- **Model Type:** Siamese CNN for image similarity.
+- **Input:** Cropped cow nose print images (224x224 RGB).
+- **Embedding Size:** 256-dimensional vector.
+### **Performance Metrics:**
 - Accuracy, Precision, Recall, F1-score (see notebook for details).
-- Notebook Link: notebooks/ML_Notebook.ipynb
 
-## **Video Demo**
-Demo: https://youtu.be/aZAGvWUMY90 
+## Usage Examples
+### **1. Register Cattle**
+```
+import requests
+
+url = "http://localhost:8000/api/register-cattle"
+files = {
+    'images': [('nose1.jpg', open('nose1.jpg', 'rb'), 'image/jpeg'),
+               ('nose2.jpg', open('nose2.jpg', 'rb'), 'image/jpeg')]
+}
+data = {
+    'owner_name': 'John Doe',
+    'owner_email': 'john@example.com',
+    'owner_phone': '+1234567890',
+    'cattle_breed': 'Angus',
+    'age': '2 years'
+}
+
+response = requests.post(url, files=files, data=data)
+print(response.json())
+```
+### **2. Verify Cattle**
+
+```
+import requests
+
+url = "http://localhost:8000/api/verify-cattle"
+files = {'image': open('query_nose.jpg', 'rb')}
+
+response = requests.post(url, files=files)
+print(response.json())
+```
+
+## Machine Learning Model
+### **Siamese CNN Architecture**
+The system uses a Siamese Neural Network with the following structure:
+
+- Feature Extraction: CNN backbone (MobileNetV2)
+- Distance Metric: Contrastive loss with Euclidean distance
+- Input Size: 224x224 RGB images
+- Output: Similarity score (0-1 range)
+
+### **Training Process**
+1. Data augmentation on nose print images
+2. Contrastive loss minimization
+3. Threshold tuning for verification accuracy
+
+### **Mobile Application**
+The Flutter mobile app provides:
+- Camera interface for capturing nose prints
+- Registration and verification workflows
+- History of previous verifications
+- Push notifications for verification results
+
 
 ## How to Test the MVP
+
+1. Run FastAPI server locally.
+2. Use Swagger UI to register a cow with 3–5 nose images.
+3. Use Swagger UI to verify a cow by uploading a new nose image.
+4. Check email and SMS notifications.
+5. Observe the similarity score returned by the API.
+
+## YOLOv8 Cow Nose Print Detection
+<img width="624" height="590" alt="Screenshot 2025-10-07 at 1 18 09 am" src="https://github.com/user-attachments/assets/c51b86e4-793c-42e5-af19-cd850870ad9d" />
+
+## Siamese CNN Learning Curves
+
+<img width="944" height="377" alt="Screenshot 2025-10-07 at 1 29 50 am" src="https://github.com/user-attachments/assets/b4e34c26-31c2-4125-a173-6f5b68862be9" />
+
+## **Deployment**
+### **1. Local Development**
+
 ```
-Run FastAPI server locally.
-Use Swagger UI to register a cow with 3–5 nose images.
-Use Swagger UI to verify a cow by uploading a new nose image.
-Check email and SMS notifications.
-Observe the similarity score returned by the API.
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
+### **2. Production Deployment**
+
+```
+# Using Docker
+docker build -t titweng-cattle .
+docker run -p 8000:8000 titweng-cattle
+
+# Using Gunicorn (Linux/Mac)
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app
+
+```
+
+## Testing
+**Run the test suite:**
+
+```
+pytest tests/ -v
+```
+
+## **Contributing**
+
+1. Fork the repository
+2. Create a feature branch (git checkout -b feature/AmazingFeature)
+3. Commit your changes (git commit -m 'Add some AmazingFeature')
+4. Push to the branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+
+## **License**
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## **Contributor**
+1.Geu Aguto Garang Bior - g.bior@alustudent.com
