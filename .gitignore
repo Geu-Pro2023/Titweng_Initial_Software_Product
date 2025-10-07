@@ -1,2 +1,5 @@
 Titweng_Backend/venv/
 Titweng_Backend/venv/
+.DS_Store
+Titweng_Backend/.DS_Store
+Titweng_Backend/app/.DS_Store
